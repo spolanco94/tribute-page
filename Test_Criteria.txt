@@ -1,0 +1,91 @@
+#Content
+X. My tribute page should have an element with corresponding id="main", which contains all other elements. 
+
+X. I should see an element with corresponding id="title", which contains a string (i.e. text) that describes the subject of the tribute page (e.g. "Dr. Norman Borlaug"). 
+
+X. I should see a <div> element with corresponding id="img-div". 
+
+X. Within the "img-div" element, I should see an <img> element with a corresponding id="image". 
+
+X. Within the "img-div" element, I should see an element with a corresponding id="img-caption" that contains textual content describing the image shown in "img-div". 
+
+X. I should see an element with a corresponding id="tribute-info", which contains textual content describing the subject of the tribute page. 
+
+X. I should see an <a> element with a corresponding id="tribute-link", which links to an outside site that contains additional information about the subject of the tribute page. HINT: You must give your element an attribute of target and set it to "_blank" in order for your link to open in a new tab (i.e. target="_blank"). 
+
+#Layout
+1. The <img> element should responsively resize, relative to the width of its parent element, without exceeding its original size. 
+
+2. The <img> element should be centered within its parent element. 
+
+body:before {
+    content: "";
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    width: 4px;
+    background-color: #d4d730;
+}
+
+.timeline {
+    overflow: hidden;
+}
+
+.timeline #tribute-info {
+    width: calc( 100% - 80px);
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+    left: -5px;
+}
+.timeline #tribute-info .bullet {
+    width: calc(50% - 80px);
+    float: left;
+    padding: 20px;
+    clear: both;
+    text-align: right;
+}
+
+.timeline #tribute-info .bullet:not(:first-child) {
+    margin-top: -60px;
+}
+
+.timeline #tribute-info .bullet .date {
+    font-size: 32px;
+    margin-bottom: 12px;
+    position: relative;
+    color: #fff;
+}
+
+.timeline #tribute-info .bullet .date:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 4px solid #d4d730;
+    background-color: #3e4ef0;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -73px;
+    z-index: 1000;
+}
+
+.timeline #tribute-info .bullet .text {
+    color: #aaa;
+}
+
+.timeline #tribute-info .bullet .text p {
+    line-height: 1.4em;
+}
+
+.timeline #tribute-info p:nth-child(2n) {
+    text-align: left;
+    float: right;
+}
+
+.timeline #tribute-info .bullet:nth-child(2n) .date:before {
+    left: -63px;
+}
